@@ -1,8 +1,4 @@
 import React from "react";
-import { data } from "../data";
-import NewRow from "./NewExpense";
-
-//const { expenseList, categories } = data;
 
 const Table = ({ expenseList, categories }) => {
   debugger;
