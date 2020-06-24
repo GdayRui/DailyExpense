@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Table from "../expenses/ExpenseTable";
+import Table from "../components/ExpenseTable";
 
 // pass the state to Table component from store.
 const mapStateToProps = (state) => ({
