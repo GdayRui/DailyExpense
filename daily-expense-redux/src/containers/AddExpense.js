@@ -6,35 +6,33 @@ import { connect } from "react-redux";
 
 const Form = ({ categories, dispatch }) => {
   debugger;
-  let inputDate = "",
-    inputItem = "",
-    inputAmount = "",
-    inputCategory = "-- Please Select --",
-    inputNotes = "";
-  let expense = {
-    date: inputDate.value,
-    item: inputItem.value,
-    amount: inputAmount.value,
-    categoryId: inputCategory.value
-      ? categories.filter((c) => c.name === inputCategory.value)[0].id
-      : categories[0].id,
-    // categoryId: 1,
-    notes: inputNotes.value,
-  };
+  let inputDate, inputItem, inputAmount, inputCategory, inputNotes;
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        // why use the below condition?
         // if (!inputDate.value.trim()) {
         //   return;
         // }
+        let expense = {
+          date: inputDate.value,
+          item: inputItem.value,
+          amount: inputAmount.value,
+          categoryId: inputCategory.value
+            ? categories.filter((c) => c.name === inputCategory.value)[0].id
+            : categories[0].id,
+          // categoryId: 1,
+          notes: inputNotes.value,
+        };
         dispatch(addExpense(expense));
-        expense.date = "";
-        expense.item = "";
-        expense.amount = "";
-        expense.categoryId = 0;
-        expense.notes = "";
+        // seems not useful :
+        // expense.date = "";
+        // expense.item = "";
+        // expense.amount = "";
+        // expense.categoryId = 0;
+        // expense.notes = "";
       }}
     >
       <input

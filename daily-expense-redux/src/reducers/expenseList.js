@@ -3,14 +3,15 @@ import { data } from "../data";
 
 const { expenseDataList } = data;
 
+// the expense `id : expenseDataList.length + 1` cannot be updated as data is static
+
 const expenseList = (state = expenseDataList, action) => {
   const { type, payload } = action;
-
   switch (type) {
     case ADD_EXPENSE:
       return [
         ...state,
-        { id: expenseDataList.length + 1, ...payload, isSelected: false },
+        { id: state.length + 1, ...payload, isSelected: false },
       ];
     case TOGGLE_SELECTION:
       return state.map((expense) =>
