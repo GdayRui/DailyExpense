@@ -1,13 +1,12 @@
 import React from "react";
-import Form from "./components/Form";
+import AddExpense from "./containers/AddExpense";
 import DeleteExpense from "./components/DeleteExpense";
 import ExpenseList from "./containers/ExpenseList";
-
 import "./App.css";
 
 const App = () => (
   <div className="App">
-    <Form />
+    <AddExpense />
     <ExpenseList />
     <DeleteExpense />
   </div>

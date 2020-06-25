@@ -8,7 +8,10 @@ const expenseList = (state = expenseDataList, action) => {
 
   switch (type) {
     case ADD_EXPENSE:
-      return [...state, { id: 0, ...payload, isSelected: false }];
+      return [
+        ...state,
+        { id: expenseDataList.length + 1, ...payload, isSelected: false },
+      ];
     case TOGGLE_SELECTION:
       return state.map((expense) =>
         expense.id === payload
